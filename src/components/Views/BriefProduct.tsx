@@ -4,10 +4,10 @@ import { singleProductType } from "../utils/types"
 import { urlForImage } from "../../../sanity/lib/image";
 import PortableText from "react-portable-text"
 import Image from "next/image";
-import { KindeUser } from "@kinde-oss/kinde-auth-nextjs/server";
+import { KindeUser } from "@kinde-oss/kinde-auth-nextjs/types"; 
 import { addToCartApiCall } from "../utils/apicalling";
-import { useToast } from "../ui/use-toast";
-import { Toaster } from "../ui/toaster";
+import { useToast } from "./use-toast";
+import { Toaster } from "../ui/toaster"; 
 
 const BriefProduct = ({ product, user }: { product: singleProductType, user: KindeUser }) => {
     const [size, setsize] = useState<string>(product.size[0]);
@@ -42,7 +42,7 @@ const BriefProduct = ({ product, user }: { product: singleProductType, user: Kin
             <div className="container px-5 py-24 mx-auto">
                 <div className="lg:w-4/5 mx-auto flex flex-wrap">
                     <div className="lg:w-1/2 w-full space-y-5">
-                        <img alt="ProductImage" className="w-full lg:h-auto h-64 object-cover object-center rounded" src={activeImageUrl} />
+                        <Image alt="ProductImage" className="w-full lg:h-auto h-64 object-cover object-center rounded" src={activeImageUrl} />
                         <div className="flex max-w-1/2 gap-7 mx-auto w-full overflow-hidden">
                             {
                                 imagesArray.map((item, index) => (
